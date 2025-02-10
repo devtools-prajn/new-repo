@@ -1,0 +1,19 @@
+name: Simple File Workflow
+
+on:
+  push:
+    paths:
+      - 'your-file.txt'  # specify the file or files you want to monitor
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Display contents of the file
+      run: |
+        echo "The contents of the file are:"
+        cat your-file.txt  # Replace with your actual file name
