@@ -1,19 +1,17 @@
-name: Simple File Workflow
+name: Simple Workflow
 
 on:
   push:
-    paths:
-      - 'your-file.txt'  # specify the file or files you want to monitor
+    branches:
+      - main  # Trigger the workflow on pushes to the 'main' branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2  # Check out the repository's code
 
-    - name: Display contents of the file
-      run: |
-        echo "The contents of the file are:"
-        cat your-file.txt  # Replace with your actual file name
+      - name: Run a simple command
+        run: echo "Hello, GitHub Actions!"  # This is a simple echo command
